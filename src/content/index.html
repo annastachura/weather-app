@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -18,23 +19,45 @@
 
     <link rel="manifest" href="manifest.json" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link
-      rel="apple-touch-icon"
-      sizes="192x192"
-      href="assets/pwa/icons/icon-192x192.png"
-    />
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/pwa/icons/icon-192x192.png" />
 
-    <link
-      rel="icon"
-      type="image/png"
-      href="assets/pwa/icons/icon-192x192.png"
-    />
+    <link rel="icon" type="image/png" href="assets/pwa/icons/icon-192x192.png" />
 
     <link rel="stylesheet" href="css/main.css" />
-  </head>
-  <body>
-    <h1>Hello world - with simple PWA support!</h1>
+</head>
 
-    <script src="js/main.js"></script>
-  </body>
+<body>
+    <section class="header">
+        <button class="header__hamburger"></button>
+        <h1 class="header__city">Kraków</h1>
+        <button class="header__share"></button>
+        <ul class="header__list">
+            <li class="list__element">TERAZ</li>
+            <li class="list__element">CO GODZINĘ</li>
+            <li class="list__element">NA DZIEŃ</li>
+            <li class="list__element">MAPY</li>
+        </ul>
+    </section>
+    <section class="today">
+        <h1 class="today__title">DZISAJ</h1>
+        <P class="today__temperature">5 - ponieżej wczorajszej temperatury maksymalnej:7</P>
+        <img class="today__image" svg="" alt="">
+    </section>
+    <sectin class="now">
+        <h1 class="now__title">OBECNE</h1>
+        <P class="now__timer"></P>
+        <h2 class="now__info">Częściowo słonecznie</h2>
+        <p class="now__temperature">1 C</p>
+        <p class="now__humidity">WILGOTNOŚĆ 69%</p>
+        <p class="now__uv">WSKAŹNIK UV BRAK</p>
+        <p class="now__wind">PRĘDKOŚĆ WIATRU 28 KM/H</p>
+        <img class="now__image" src="" alt="">
+        </section>
+        <section class="footer">
+            <h1 class="footer__title">PRZEGLĄD POGODY</h1>
+            <h2 class="footer__info">Zagrożenie -nawałnica śnieżna w czwartek</h2>
+        </section>
+        <script src="js/main.js"></script>
+</body>
+
 </html>
