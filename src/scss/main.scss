@@ -1,16 +1,51 @@
 @import "_normalize";
 @import "_variables";
-
-
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 body {
-  color: $yellow;
-  background: $violet;
+    color: black;
+}
+
+.header {
+    background: url("/assets/img/niebo.jpg");
+    object-fit: cover;
+    &__container {
+        display: flex;
+        flex-direction: row;
+    }
+    &__hamburger {
+        margin: 15px;
+        color: white;
+        background: none;
+        font-size: 40px;
+    }
+    &__city {
+        color: white;
+        font-size: 30px;
+    }
+    &__share {
+        width: 25px;
+        height: 25px;
+        margin: 15px;
+        justify-content: flex-end;
+        margin-left: auto;
+    }
+    &__list {
+        display: flex;
+        flex-direction: row;
+        color: white;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+        margin: 10px;
+        font-size: 15px;
+    }
 }
