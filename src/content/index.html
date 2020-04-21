@@ -34,26 +34,47 @@
             <img class="header__share" src="assets/img/share.svg" alt="share icon">
         </div>
         <ul class="header__list">
-            <li class="list__element">TERAZ</li>
+            <li class="list__element list__element--now">TERAZ</li>
             <li class="list__element list__element--hour">CO GODZINĘ</li>
             <li class="list__element">NA DZIEŃ</li>
         </ul>
     </section>
-    <section class="today">
-        <h1 class="today__title">DZISAJ</h1>
-        <span class="today__temperature today__temperature--js">5 - poniżej</span>
-        <span class="today__text">wczorajszej temperatury maksymalnej:7</span>
-        <img class="today__image" src="" alt="">
+    <section class="today today--visible">
+        <section class="now">
+            <h1 class="now__title">OBECNE</h1>
+            <P class="now__timer"></P>
+            <h2 class="now__info">Częściowo słonecznie</h2>
+            <p class="now__temperature"><b class="now__temperature--js">1</b><b>°C</b></p>
+            <p class="now__condition">WILGOTNOŚĆ: <b class="now__condtion--bold now__condition--humidity">69%</b><b>%</b></p>
+            <p class="now__condition">CIŚNIENIE: <b class="now__condition--pressure">BRAK</b><b>Pa</b></p>
+            <p class="now__condition">PRĘDKOŚĆ WIATRU: <b class="now__condition--wind">28 KM/H</b><b>km/h</b></p>
+            <img class="now__image" src="" alt="">
+        </section>
     </section>
-    <section class="now">
-        <h1 class="now__title">OBECNE</h1>
-        <P class="now__timer"></P>
-        <h2 class="now__info">Częściowo słonecznie</h2>
-        <p class="now__temperature"><b class="now__temperature--js">1</b><b>°C</b></p>
-        <p class="now__condition">WILGOTNOŚĆ: <b class="now__condtion--bold now__condition--humidity">69%</b><b>%</b></p>
-        <p class="now__condition">CIŚNIENIE: <b class="now__condition--pressure">BRAK</b><b>Pa</b></p>
-        <p class="now__condition">PRĘDKOŚĆ WIATRU: <b class="now__condition--wind">28 KM/H</b><b>km/h</b></p>
-        <img class="now__image" src="" alt="">
+    </section>
+    <section class="hour">
+        <ul class="hour__list">
+            <li class="hour__list--item">
+                <span class="hour__list--time">9.00</span>
+                <span class="hour__list--temp">13°C</span>
+            </li>
+            <li class="hour__list--item">
+                <span class="hour__list--time">10.00</span>
+                <span class="hour__list--temp">15°C</span>
+            </li>
+            <li class="hour__list--item">
+                <span class="hour__list--time">11.00</span>
+                <span class="hour__list--temp">16°C</span>
+            </li>
+            <li class="hour__list--item">
+                <span class="hour__list--time">12.00</span>
+                <span class="hour__list--temp">18°C</span>
+            </li>
+            <li class="hour__list--item">
+                <span class="hour__list--time">13.00</span>
+                <span class="hour__list--temp">20°C</span>
+            </li>
+        </ul>
     </section>
     <script src="js/main.js"></script>
 </body>
