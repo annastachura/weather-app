@@ -29,14 +29,13 @@
 <body>
     <section class="header">
         <div class="header__container">
-            <p class="header__hamburger">≡</p>
             <h1 class="header__city">Kraków</h1>
             <img class="header__share" src="assets/img/share.svg" alt="share icon">
         </div>
         <ul class="header__list">
             <li class="list__element list__element--now">TERAZ</li>
             <li class="list__element list__element--hour">CO GODZINĘ</li>
-            <li class="list__element">NA DZIEŃ</li>
+            <li class="list__element list__element--days">NA DZIEŃ</li>
         </ul>
     </section>
     <section class="today today--visible">
@@ -44,9 +43,13 @@
             <h1 class="now__title">OBECNE</h1>
             <P class="now__timer"></P>
             <h2 class="now__info">Częściowo słonecznie</h2>
-            <p class="now__temperature"><b class="now__temperature--js">1</b><b>°C</b></p>
+            <p class="now__temperature">
+                <b class="now__temperature--js">1</b>
+                <b>°C</b>
+                <img class="now__icon" src="assets/img/sun.svg" alt="weather icon">
+            </p>
             <p class="now__condition">WILGOTNOŚĆ: <b class="now__condtion--bold now__condition--humidity">69%</b><b>%</b></p>
-            <p class="now__condition">CIŚNIENIE: <b class="now__condition--pressure">BRAK</b><b>Pa</b></p>
+            <p class="now__condition">CIŚNIENIE: <b class="now__condition--pressure"></b><b>Pa</b></p>
             <p class="now__condition">PRĘDKOŚĆ WIATRU: <b class="now__condition--wind">28 KM/H</b><b>km/h</b></p>
             <img class="now__image" src="" alt="">
         </section>
@@ -73,6 +76,65 @@
             <li class="hour__list--item">
                 <span class="hour__list--time">13.00</span>
                 <span class="hour__list--temp">20°C</span>
+            </li>
+        </ul>
+    </section>
+    <section class="days">
+        <ul class="days__list">
+            <li class="list">
+                <div class="list__element">
+                    <p class="list__title">Dzisiaj</p>
+                    <p class="list__description">słonecznie</p>
+                </div>
+                <img class="list__icon" src="assets/img/sun.svg" alt="weather icon">
+                <div class="list__temp">
+                    <p class="list__maxTemp">14°</p>
+                    <p class="list__minTemp">0°</p>
+                </div>
+            </li>
+            <li class="list">
+                <div class="list__element">
+                    <p class="list__title">środa 22 kwi</p>
+                    <p class="list__description">słonecznie</p>
+                </div>
+                <img class="list__icon" src="assets/img/sun.svg" alt="weather icon">
+                <div class="list__temp">
+                    <p class="list__maxTemp">17°</p>
+                    <p class="list__minTemp">3°</p>
+                </div>
+            </li>
+            <li class="list">
+                <div class="list__element">
+                    <p class="list__title">czwartek 23 kwi</p>
+                    <p class="list__description">przewaga chmur</p>
+                </div>
+                <img class="list__icon" src="assets/img/sun.svg" alt="weather icon">
+                <div class="list__temp">
+                    <p class="list__maxTemp">21°</p>
+                    <p class="list__minTemp">6°</p>
+                </div>
+            </li>
+            <li class="list">
+                <div class="list__element">
+                    <p class="list__title">piątek 24 kwi</p>
+                    <p class="list__description">częściowe zachmurzenie</p>
+                </div>
+                <img class="list__icon" src="assets/img/sun.svg" alt="weather icon">
+                <div class="list__temp">
+                    <p class="list__maxTemp">18°</p>
+                    <p class="list__minTemp">1°</p>
+                </div>
+            </li>
+            <li class="list">
+                <div class="list__element">
+                    <p class="list__title">sobia 25 kwi</p>
+                    <p class="list__description">przejściowe opady</p>
+                </div>
+                <img class="list__icon" src="assets/img/sun.svg" alt="weather icon">
+                <div class="list__temp">
+                    <p class="list__maxTemp">15°</p>
+                    <p class="list__minTemp">3°</p>
+                </div>
             </li>
         </ul>
     </section>

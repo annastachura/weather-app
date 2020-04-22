@@ -15,23 +15,23 @@ if ('serviceWorker' in navigator) {
 }
 
 
-// fetch('http://api.openweathermap.org/data/2.5/weather?q=Krakow&APPID=b77d6549110ac17233e88b98716d9e61&units=metric')
-//     .then(resp => resp.json())
-//     .then(resp => {
-//         resp.main.temp
-//         temperature.innerHTML = Math.round(resp.main.temp);
-//         humidity.innerHTML = resp.main.humidity;
-//         pressure.innerHTML = resp.main.pressure;
-//         wind.innerHTML = resp.wind.speed;
-//     })
-//     .catch(err => {
-//         console.log(err);
-//     })
+fetch('http://api.openweathermap.org/data/2.5/weather?q=Krakow&APPID=b77d6549110ac17233e88b98716d9e61&units=metric')
+    .then(resp => resp.json())
+    .then(resp => {
+        resp.main.temp
+        temperature.innerHTML = Math.round(resp.main.temp);
+        humidity.innerHTML = resp.main.humidity;
+        pressure.innerHTML = resp.main.pressure;
+        wind.innerHTML = resp.wind.speed;
+    })
+    .catch(err => {
+        console.log(err);
+    })
 
-// const temperature = document.querySelector('.now__temperature--js');
-// const humidity = document.querySelector('.now__condition--humidity');
-// const pressure = document.querySelector(".now__condition--pressure");
-// const wind = document.querySelector(".now__condition--wind");
+const temperature = document.querySelector('.now__temperature--js');
+const humidity = document.querySelector('.now__condition--humidity');
+const pressure = document.querySelector(".now__condition--pressure");
+const wind = document.querySelector(".now__condition--wind");
 
 
 fetch('http://api.openweathermap.org/data/2.5/forecast/?q=London,uk&APPID=b77d6549110ac17233e88b98716d9e61&units=metric')
@@ -40,15 +40,17 @@ fetch('http://api.openweathermap.org/data/2.5/forecast/?q=London,uk&APPID=b77d65
         const forecastList = resp.list;
 
 
+
         for (const forecast of forecastList) {
             console.log(forecast);
+            var date = new Date(forecast.dt * 1000);
+            var hours = date.getHours();
             hour.innerHTML += `<li class="hour__list--item">
-            <span class="hour__list--time">${hours}</span>
+            <span class="hour__list--time">${hours}:00</span>
             <span class="hour__list--temp">${Math.round(forecast.main.temp)}°C</span>
         </li>`
 
-            var date = new Date(forecast.dt * 1000);
-            var hours = date.getHours();
+
             console.log(hours);
 
         }
@@ -67,10 +69,27 @@ const everyHour = document.querySelector(".list__element--hour");
 everyHour.addEventListener('click', function() {
     hourSection.classList.add("hour--visible");
     timeVisible.classList.remove("today--visible");
+    days.classList.remove("days--visible");
 });
 
 const now = document.querySelector(".list__element--now");
 now.addEventListener('click', function() {
     timeVisible.classList.add("today--visible");
     hourSection.classList.remove("hour--visible");
-})
+    days.classList.remove("days--visible");
+});
+
+const everyDay = document.querySelector(".list__element--days");
+const days = document.querySelector(".days");
+everyDay.addEventListener('click', function() {
+    days.classList.add("days--visible");
+    hourSection.classList.remove("hour--visible");
+    timeVisible.classList.remove("today--visible");
+});
+
+
+fetch('http://api.openweathermap.org/data/2.5/forecast/?q=London,uk&APPID=b77d6549110ac17233e88b98716d9e61&units=metric')
+    .then(resp => resp.json())
+    .then(resp => {
+        const daysWeather = resp.
+    })
