@@ -23,6 +23,8 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q=Krakow&APPID=b77d6549110
         humidity.innerHTML = resp.main.humidity;
         pressure.innerHTML = resp.main.pressure;
         wind.innerHTML = resp.wind.speed;
+        const icon = document.querySelector(".now__icon--js");
+        icon.src = `http://openweathermap.org/img/wn/${resp.weather[0].icon}@2x.png`
     })
     .catch(err => {
         console.log(err);
@@ -47,6 +49,7 @@ fetch('http://api.openweathermap.org/data/2.5/forecast/?q=London,uk&APPID=b77d65
             var hours = date.getHours();
             hour.innerHTML += `<li class="hour__list--item">
             <span class="hour__list--time">${hours}:00</span>
+            <img class="hour__list--icon" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="hour icon"></img>
             <span class="hour__list--temp">${Math.round(forecast.main.temp)}°C</span>
         </li>`
 
@@ -88,8 +91,8 @@ everyDay.addEventListener('click', function() {
 });
 
 
-fetch('http://api.openweathermap.org/data/2.5/forecast/?q=London,uk&APPID=b77d6549110ac17233e88b98716d9e61&units=metric')
-    .then(resp => resp.json())
-    .then(resp => {
-        const daysWeather = resp.
-    })
+// fetch('http://api.openweathermap.org/data/2.5/forecast/?q=London,uk&APPID=b77d6549110ac17233e88b98716d9e61&units=metric')
+//     .then(resp => resp.json())
+//     .then(resp => {
+//         const daysWeather = resp.
+//     })
