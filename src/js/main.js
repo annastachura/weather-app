@@ -14,21 +14,28 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+const city = document.querySelector(".header__city--js");
+const search = document.querySelector(".header__button--js");
+search.addEventListener('click', function() {
 
-fetch('http://api.openweathermap.org/data/2.5/weather?q=Krakow&APPID=b77d6549110ac17233e88b98716d9e61&units=metric')
-    .then(resp => resp.json())
-    .then(resp => {
-        resp.main.temp
-        temperature.innerHTML = Math.round(resp.main.temp);
-        humidity.innerHTML = resp.main.humidity;
-        pressure.innerHTML = resp.main.pressure;
-        wind.innerHTML = resp.wind.speed;
-        const icon = document.querySelector(".now__icon--js");
-        icon.src = `http://openweathermap.org/img/wn/${resp.weather[0].icon}@2x.png`
-    })
-    .catch(err => {
-        console.log(err);
-    })
+
+
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city.value}&APPID=b77d6549110ac17233e88b98716d9e61&units=metric`)
+        .then(resp => resp.json())
+        .then(resp => {
+            resp.main.temp
+            temperature.innerHTML = Math.round(resp.main.temp);
+            humidity.innerHTML = resp.main.humidity;
+            pressure.innerHTML = resp.main.pressure;
+            wind.innerHTML = resp.wind.speed;
+            const icon = document.querySelector(".now__icon--js");
+            icon.src = `http://openweathermap.org/img/wn/${resp.weather[0].icon}@2x.png`
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+});
 
 const temperature = document.querySelector('.now__temperature--js');
 const humidity = document.querySelector('.now__condition--humidity');
