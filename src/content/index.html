@@ -34,29 +34,29 @@
         </div>
         <ul class="header__list">
             <li class="list__element list__element--now">TERAZ</li>
-            <li class="list__element list__element--hour">CO TRZY GODZINY</li>
+            <li class="list__element list__element--hour">CO GODZINĘ</li>
             <li class="list__element list__element--days">NA DZIEŃ</li>
         </ul>
     </section>
     <section class="today today--visible">
-        <section class="now">
+        <section class="now now--js">
             <h1 class="now__title">OBECNE</h1>
             <P class="now__timer"></P>
             <h2 class="now__info">Częściowo słonecznie</h2>
             <p class="now__temperature">
-                <b class="now__temperature--js">1</b>
+                <b class="now__temperature--js"></b>
                 <b>°C</b>
                 <img class="now__icon now__icon--js" src="" alt="weather icon">
             </p>
-            <p class="now__condition">WILGOTNOŚĆ: <b class="now__condtion--bold now__condition--humidity">69%</b><b>%</b></p>
+            <p class="now__condition">WILGOTNOŚĆ: <b class="now__condtion--bold now__condition--humidity">69</b><b>%</b></p>
             <p class="now__condition">CIŚNIENIE: <b class="now__condition--pressure"></b><b>Pa</b></p>
-            <p class="now__condition">PRĘDKOŚĆ WIATRU: <b class="now__condition--wind">28 KM/H</b><b>km/h</b></p>
+            <p class="now__condition">PRĘDKOŚĆ WIATRU: <b class="now__condition--wind"></b><b>km/h</b></p>
         </section>
     </section>
     </section>
     <section class="hour">
         <ul class="hour__list">
-            <li class="hour__list--item">
+            <!-- <li class="hour__list--item">
                 <span class="hour__list--time">9.00</span>
                 <img class="hour__list--icon" src="assets/img/sun.svg" alt="hour icon">
                 <span class="hour__list--temp">13°C</span>
@@ -80,12 +80,12 @@
                 <span class="hour__list--time">13.00</span>
                 <img class="hour__list--icon" src="assets/img/sun.svg" alt="hour icon">
                 <span class="hour__list--temp">20°C</span>
-            </li>
+            </li> -->
         </ul>
     </section>
     <section class="days">
-        <ul class="days__list">
-            <li class="list">
+        <ul class="days__list days__list--js">
+            <!-- <li class="list">
                 <div class="list__element">
                     <p class="list__title">Dzisiaj</p>
                     <p class="list__description">słonecznie</p>
@@ -139,7 +139,7 @@
                     <p class="list__maxTemp">15°</p>
                     <p class="list__minTemp">3°</p>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </section>
     <script src="js/main.js"></script>

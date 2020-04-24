@@ -14,28 +14,85 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+
 const city = document.querySelector(".header__city--js");
 const search = document.querySelector(".header__button--js");
-search.addEventListener('click', function() {
+city.addEventListener('keyup', function(e) {
+    if (event.keyCode === 13) {
+        upDateWeather();
+        event.preventDefault();
+    };
+});
 
+function upDateWeather() {
 
-
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city.value}&APPID=b77d6549110ac17233e88b98716d9e61&units=metric`)
+    fetch(`https://eu1.locationiq.com/v1/search.php?key=cc47948346ea6b&q=${city.value}&format=json`)
         .then(resp => resp.json())
         .then(resp => {
-            resp.main.temp
-            temperature.innerHTML = Math.round(resp.main.temp);
-            humidity.innerHTML = resp.main.humidity;
-            pressure.innerHTML = resp.main.pressure;
-            wind.innerHTML = resp.wind.speed;
-            const icon = document.querySelector(".now__icon--js");
-            icon.src = `http://openweathermap.org/img/wn/${resp.weather[0].icon}@2x.png`
-        })
-        .catch(err => {
-            console.log(err);
-        })
+            const lat = resp[0].lat
+            const lon = resp[0].lon
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=b77d6549110ac17233e88b98716d9e61&units=metric&lang=pl`)
+                .then(resp => resp.json())
+                .then(resp => {
+                    resp.current.temp
+                    temperature.innerHTML = Math.round(resp.current.temp);
+                    humidity.innerHTML = resp.current.humidity;
+                    pressure.innerHTML = resp.current.pressure;
+                    wind.innerHTML = resp.current.wind_speed;
+                    const icon = document.querySelector(".now__icon--js");
+                    icon.src = `http://openweathermap.org/img/wn/${resp.current.weather[0].icon}@2x.png`
 
+                    for (const forecast of resp.hourly) {
+
+                        var date = new Date(forecast.dt * 1000);
+                        var hours = date.getHours();
+                        hour.innerHTML += `<li class="hour__list--item">
+                <span class="hour__list--time">${hours}:00</span>
+                <img class="hour__list--icon" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="hour icon"></img>
+                <span class="hour__list--temp">${Math.round(forecast.temp)}°C</span>
+            </li>`
+
+                    }
+                    const daysList = document.querySelector(".days__list--js");
+                    daysList.innerHTML = "";
+
+
+                    for (const day of resp.daily) {
+                        var date = new Date(day.dt * 1000);
+                        var dayOfWeek = DaysOfWeek[date.getDay()];
+                        daysList.innerHTML += `<li class="list">
+                <div class="list__element">
+                    <p class="list__title">${dayOfWeek}</p>
+                    <p class="list__description">${day.weather[0].description}</p>
+                </div>
+                <img class="list__icon" src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon">
+                <div class="list__temp">
+                    <p class="list__maxTemp">${Math.round(day.temp.max)}°</p>
+                    <p class="list__minTemp">${Math.round(day.temp.min)}°</p>
+                </div>
+            </li>`
+
+                    }
+                    const now = document.querySelector('.now--js');
+                    now.classList.add("now--visible");
+                })
+
+
+            .catch(err => {
+                console.log(err);
+            })
+
+        })
+}
+
+search.addEventListener('click', function() {
+    upDateWeather()
 });
+
+
+
+
+const DaysOfWeek = ["niedziela", "poniedziałek", "wtorek", "środa", "czartek", "piątek", "sobota"]
 
 const temperature = document.querySelector('.now__temperature--js');
 const humidity = document.querySelector('.now__condition--humidity');
@@ -43,31 +100,6 @@ const pressure = document.querySelector(".now__condition--pressure");
 const wind = document.querySelector(".now__condition--wind");
 
 
-fetch('http://api.openweathermap.org/data/2.5/forecast/?q=London,uk&APPID=b77d6549110ac17233e88b98716d9e61&units=metric')
-    .then(resp => resp.json())
-    .then(resp => {
-        const forecastList = resp.list;
-
-
-
-        for (const forecast of forecastList) {
-            console.log(forecast);
-            var date = new Date(forecast.dt * 1000);
-            var hours = date.getHours();
-            hour.innerHTML += `<li class="hour__list--item">
-            <span class="hour__list--time">${hours}:00</span>
-            <img class="hour__list--icon" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="hour icon"></img>
-            <span class="hour__list--temp">${Math.round(forecast.main.temp)}°C</span>
-        </li>`
-
-
-            console.log(hours);
-
-        }
-    })
-    .catch(err => {
-        console.log(err);
-    })
 
 const timeVisible = document.querySelector(".today");
 const hourSection = document.querySelector(".hour");
