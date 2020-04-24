@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Site title</title>
+    <meta name="description" content="Description" />
+
+    <!-- Title -->
+    <meta property="og:title" content="" />
+    <!-- OPTIONAL description. 2-4 sentences. -->
+    <meta property="og:description" content="" />
+    <!-- full url with http(s) ie. https://maciejkorsan.github.io/my-repo/ -->
+    <meta property="og:url" content="" />
+    <!-- full url to the image with http(s) ie. https://maciejkorsan.github.io/my-repo/assets/img/fb.png. Facebook suggests at least 1200 x 630. -->
+    <meta property="og:image" content="https://maciejkorsan.com/wtf-gulp-starter/assets/img/cover.png" />
+
+    <link rel="manifest" href="manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/pwa/icons/icon-192x192.png" />
+
+    <link rel="icon" type="image/png" href="assets/pwa/icons/icon-192x192.png" />
+
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+    <section class="header">
+        <div class="header__container">
+            <input class="header__city header__city--js" placeholder="Wpisz nzawę miasta"></input>
+            <button class="header__button header__button--js"></button>
+        </div>
+        <ul class="header__list">
+            <li class="list__element list__element--now">TERAZ</li>
+            <li class="list__element list__element--hour">CO GODZINĘ</li>
+            <li class="list__element list__element--days">NA DZIEŃ</li>
+        </ul>
+    </section>
+    <section class="today today--visible">
+        <section class="now now--js">
+            <h1 class="now__title">OBECNE</h1>
+            <P class="now__timer"></P>
+            <h2 class="now__info">Częściowo słonecznie</h2>
+            <p class="now__temperature">
+                <b class="now__temperature--js"></b>
+                <b>°C</b>
+                <img class="now__icon now__icon--js" src="" alt="weather icon">
+            </p>
+            <p class="now__condition">WILGOTNOŚĆ: <b class="now__condtion--bold now__condition--humidity">69</b><b>%</b></p>
+            <p class="now__condition">CIŚNIENIE: <b class="now__condition--pressure"></b><b>Pa</b></p>
+            <p class="now__condition">PRĘDKOŚĆ WIATRU: <b class="now__condition--wind"></b><b>km/h</b></p>
+        </section>
+    </section>
+    </section>
+    <section class="hour">
+        <ul class="hour__list">
+            <!-- <li class="hour__list--item">
+                <span class="hour__list--time">9.00</span>
+                <img class="hour__list--icon" src="assets/img/sun.svg" alt="hour icon">
+                <span class="hour__list--temp">13°C</span>
+            </li>
+            <li class="hour__list--item">
+                <span class="hour__list--time">10.00</span>
+                <img class="hour__list--icon" src="assets/img/sun.svg" alt="hour icon">
+                <span class="hour__list--temp">15°C</span>
+            </li>
+            <li class="hour__list--item">
+                <span class="hour__list--time">11.00</span>
+                <img class="hour__list--icon" src="assets/img/sun.svg" alt="hour icon">
+                <span class="hour__list--temp">16°C</span>
+            </li>
+            <li class="hour__list--item">
+                <span class="hour__list--time">12.00</span>
+                <img class="hour__list--icon" src="assets/img/sun.svg" alt="hour icon">
+                <span class="hour__list--temp">18°C</span>
+            </li>
+            <li class="hour__list--item">
+                <span class="hour__list--time">13.00</span>
+                <img class="hour__list--icon" src="assets/img/sun.svg" alt="hour icon">
+                <span class="hour__list--temp">20°C</span>
+            </li> -->
+        </ul>
+    </section>
+    <section class="days">
+        <ul class="days__list days__list--js">
+            <!-- <li class="list">
+                <div class="list__element">
+                    <p class="list__title">Dzisiaj</p>
+                    <p class="list__description">słonecznie</p>
+                </div>
+                <img class="list__icon" src="assets/img/sun.svg" alt="weather icon">
+                <div class="list__temp">
+                    <p class="list__maxTemp">14°</p>
+                    <p class="list__minTemp">0°</p>
+                </div>
+            </li>
+            <li class="list">
+                <div class="list__element">
+                    <p class="list__title">środa 22 kwi</p>
+                    <p class="list__description">słonecznie</p>
+                </div>
+                <img class="list__icon" src="assets/img/sun.svg" alt="weather icon">
+                <div class="list__temp">
+                    <p class="list__maxTemp">17°</p>
+                    <p class="list__minTemp">3°</p>
+                </div>
+            </li>
+            <li class="list">
+                <div class="list__element">
+                    <p class="list__title">czwartek 23 kwi</p>
+                    <p class="list__description">przewaga chmur</p>
+                </div>
+                <img class="list__icon" src="assets/img/sun.svg" alt="weather icon">
+                <div class="list__temp">
+                    <p class="list__maxTemp">21°</p>
+                    <p class="list__minTemp">6°</p>
+                </div>
+            </li>
+            <li class="list">
+                <div class="list__element">
+                    <p class="list__title">piątek 24 kwi</p>
+                    <p class="list__description">częściowe zachmurzenie</p>
+                </div>
+                <img class="list__icon" src="assets/img/sun.svg" alt="weather icon">
+                <div class="list__temp">
+                    <p class="list__maxTemp">18°</p>
+                    <p class="list__minTemp">1°</p>
+                </div>
+            </li>
+            <li class="list">
+                <div class="list__element">
+                    <p class="list__title">sob 25 kwi</p>
+                    <p class="list__description">przejściowe opady</p>
+                </div>
+                <img class="list__icon" src="assets/img/sun.svg" alt="weather icon">
+                <div class="list__temp">
+                    <p class="list__maxTemp">15°</p>
+                    <p class="list__minTemp">3°</p>
+                </div>
+            </li> -->
+        </ul>
+    </section>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
